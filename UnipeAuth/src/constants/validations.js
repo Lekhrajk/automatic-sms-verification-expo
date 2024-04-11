@@ -5,7 +5,7 @@ const containsNumber = /^(?=.*?[0-9]).{0,}$/
 
 
 const loginVS = Yup.object().shape({
-    email: Yup.string().email('Invalid email format').required('Email is required'),
+    username: Yup.string().required('Username is required'),
     password: Yup.string().required('Password is required'),
 })
 
@@ -35,11 +35,11 @@ const signupVS = Yup.object().shape({
 })
 
 const forgotPassVS = Yup.object().shape({
-    email: Yup.string().email('Invalid email format').required('Email is required'),
+    username: Yup.string().required('Username is required'),
 })
 
 const otpVS = Yup.object().shape({
-    otp: Yup.string()
+    code: Yup.string()
         .required('OTP is required')
         .matches(/^\d{6}$/, 'OTP must be a 6-digit number'),
 });

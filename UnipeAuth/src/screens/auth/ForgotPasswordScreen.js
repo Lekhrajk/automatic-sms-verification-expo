@@ -12,6 +12,7 @@ import {
 import AuthWrapper from "~components/auth/AuthWrapper";
 import { COLORS } from "~constants/theme";
 import VALIDATIONS from "~constants/validations";
+import { showMessage } from "react-native-flash-message";
 import RedirectMessage from "~components/common/messages/RedirectMessage";
 const { forgotPassVS } = VALIDATIONS;
 
@@ -22,8 +23,15 @@ const ForgotPasswordScreen = ({ navigation }) => {
 
     // function to handle user registration
     const handleFormSubmit = async (values, { setSubmitting }) => {
+        console.log("🚀 ~ handleFormSubmit ~ values:", values)
         setSubmitting(true);
-        console.log("🚀 ~ handleFormSubmit ~ values:", values);
+        showMessage({
+            message: "Email sent!",
+            description: "Please check your email for password reset instructions",
+            type: "success",
+            icon: "auto",
+        });
+        navigation.navigate("LoginScreen");
     };
 
     return (

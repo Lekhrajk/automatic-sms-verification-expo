@@ -16,6 +16,7 @@ import { COLORS, SIZES } from "~constants/theme";
 import VALIDATIONS from "~constants/validations";
 import RedirectMessage from "~components/common/messages/RedirectMessage";
 import { Pressable } from "react-native";
+import useLogin from "~hooks/useLogin";
 const { loginVS } = VALIDATIONS;
 
 const LoginScreen = ({ navigation }) => {
@@ -25,17 +26,17 @@ const LoginScreen = ({ navigation }) => {
     password: "",
   };
 
+  const { handleLogin } = useLogin();
+
+
   // function to handle user registration
   const handleFormSubmit = async (values, { setSubmitting }) => {
     setSubmitting(true);
-    console.log("🚀 ~ handleFormSubmit ~ values:", values);
+    await handleLogin(values)
   };
 
   return (
-    <AuthWrapper
-      title="Login"
-      message="Welcome back enter your login details!"
-    >
+    <AuthWrapper title="Login" message="Welcome back enter your login details!">
       <Formik
         enableReinitialize={true}
         initialValues={initialValues}
@@ -113,10 +114,7 @@ const LoginScreen = ({ navigation }) => {
               <Pressable
                 onPress={() => navigation.navigate("ForgotPasswordScreen")}
               >
-                <Text
-                  color={COLORS.blue}
-                  fontSize={SIZES.smd}
-                >
+                <Text color={COLORS.blue} fontSize={SIZES.smd}>
                   Forgot Password?
                 </Text>
               </Pressable>

@@ -13,7 +13,7 @@ const MainStack = () => {
             screenOptions={{
                 tabBarActiveTintColor: COLORS.appPrimary,
                 tabBarInactiveTintColor: COLORS.appGray,
-                headerShown: false,
+                headerShown: true,
                 tabBarShowLabel: true,
                 tabBarIconStyle: {
                     marginBottom: -10

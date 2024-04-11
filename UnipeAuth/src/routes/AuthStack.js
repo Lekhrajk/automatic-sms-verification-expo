@@ -10,7 +10,7 @@ import VerifyOTPScreen from '~screens/auth/VerifyOTPScreen';
 
 const AuthStack = createNativeStackNavigator();
 
-const AuthRoutes = () => {
+const AuthStacks = () => {
     return (
         <NavigationContainer>
             <AuthStack.Navigator
@@ -40,4 +40,4 @@ const AuthRoutes = () => {
     );
 }
 
-export default AuthRoutes
+export default AuthStacks
