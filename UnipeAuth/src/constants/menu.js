@@ -1,4 +1,7 @@
-import HomeScreen from "../screens/home/HomeScreen";
+import SettingScreen from "~screens/settings/SettingScreen";
+import HomeScreen from "../screens/analytics/HomeScreen";
+import WalletScreen from "~screens/wallet/WalletScreen";
+import HistoryScreen from "~screens/history/HistoryScreen";
 
 const bottomTabsList = [
     {
@@ -11,21 +14,21 @@ const bottomTabsList = [
     {
         id: "bottomTabsList01",
         name: "Wallet",
-        component: HomeScreen,
+        component: WalletScreen,
         icon: "wallet-outline",
         activeIcon: "wallet",
     },
     {
         id: "bottomTabsList03",
         name: "History",
-        component: HomeScreen,
+        component: HistoryScreen,
         icon: "layers-outline",
         activeIcon: "layers",
     },
     {
         id: "bottomTabsList04",
         name: "Settings",
-        component: HomeScreen,
+        component: SettingScreen,
         icon: "options-outline",
         activeIcon: "options"
     }

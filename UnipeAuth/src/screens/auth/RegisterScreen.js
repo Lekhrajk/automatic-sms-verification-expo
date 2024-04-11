@@ -1,5 +1,5 @@
 import { Formik } from "formik";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
     Button,
     Form,
@@ -15,40 +15,73 @@ import TncMessage from "~components/common/messages/TncMessage";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { COLORS } from "~constants/theme";
 import VALIDATIONS from "~constants/validations";
+import { showMessage } from 'react-native-flash-message';
 import RedirectMessage from "~components/common/messages/RedirectMessage";
-// import {
-//     getHash,
-//     startOtpListener,
-//     useOtpVerify,
-// } from 'react-native-otp-verify';
+import { getHash } from "react-native-otp-verify";
+import { useDispatch, useSelector } from "react-redux";
+import { addUser } from "~store/reducers/userSlice";
 const { signupVS } = VALIDATIONS;
 
-const RegisterScreen = () => {
+const RegisterScreen = ({ navigation }) => {
     const [showPassword, setShowPassword] = useState(false);
     const initialValues = {
         username: "",
         phone: "",
         password: "",
     };
+    const dispatch = useDispatch();
+    const userData = useSelector((state) => state.user.userData);
 
 
-    // using methods
-    // useEffect(() => {
-    //     getHash().then(hash => {
-    //         console.log("hash", hash);
-    //     }).catch(console.log);
-
-    //     startOtpListener(message => {
-    //         const otp = /(\d{4})/g.exec(message)[1];
-    //         console.log("received otp",otp);
-    //     });
-    //     return () => removeListener();
-    // }, []);
 
     // function to handle user registration
     const handleFormSubmit = async (values, { setSubmitting }) => {
         setSubmitting(true);
-        console.log("🚀 ~ handleFormSubmit ~ values:", values);
+        try {
+            // Check if userData exists and if the username already exists
+            if (userData && userData.username === values.username) {
+                showMessage({
+                    message: "Already exist!",
+                    description: "Username already exists please use different username",
+                    type: "warning",
+                    icon: "auto"
+                });
+                setSubmitting(false);
+                return;
+            }
+            else {
+                showMessage({
+                    message: "Congratulations!",
+                    description: "Your registration has been successfully completed",
+                    type: "success",
+                    icon: "auto"
+                })
+
+                await getHash().then(hash => {
+                    // add this hash value at the end of sms
+                    console.log("hash for otp", hash);
+                }).catch(console.log);
+
+                const currentDate = new Date();
+                dispatch(addUser({
+                    ...values,
+                    is_verified: false,
+                    created_at: currentDate.toString(),
+                }))
+                navigation.navigate("VerifyOTPScreen", { data: values })
+            }
+
+        } catch (error) {
+            console.error("Error during form submission:", error);
+            showMessage({
+                message: "Error!",
+                description: "An error occurred during registration. Please try again.",
+                type: "error",
+                icon: "auto"
+            });
+        } finally {
+            setSubmitting(false);
+        }
     };
 
     return (
