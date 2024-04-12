@@ -94,16 +94,13 @@ The main application features include:
 
 - **Username and Password Validation**: The application checks if the username exists in Redux and throws an error if it does. It also validates the password and redirects the user to the appropriate screen based on the validation results.
 - **OTP Verification**: The OTP verification process includes auto-detection using the Google Identity SMS Retriever API. If auto-detection fails, users can manually enter the OTP. The application handles edge cases such as expired OTPs and displays error messages accordingly.
-- **Back Navigation Handling**: The application checks if the user is verified before allowing them to navigate back to the login screen.
+- **Back Navigation Handling**: The application checks if the user is not verified and trying to login then user will be redirected back to  the verifyOTPScreen.
 - **Token Generation**: A function for generating tokens using the username and password is included in the `utils` folder.
 
 ### Navigation and Routing
 
 - **React Navigation**: The application uses React Navigation for navigation with proper configurations defined in the `routes` folder. This includes `AuthStacks`, `RootStacks`, and `MainStacks`.
 
-### Conclusion
-
-This README provides a comprehensive overview of the UnipeAuth React Native application, including its authentication flow, main application features, data storage and state management, user interface and validation, authentication logic, and navigation and routing. It is designed to be clear and concise, providing all the necessary information for developers to understand and run the application.
 
 ## Testing Instructions
 
@@ -142,3 +139,4 @@ To effectively test the UnipeAuth React Native application, especially the OTP v
 
 These testing instructions provide a comprehensive guide to evaluating the UnipeAuth React Native application, focusing on the registration and OTP verification processes. By following these steps, you can ensure the application functions as intended and meets the requirements outlined in the assignment document.
 
+This README provides a comprehensive overview of the UnipeAuth React Native application, including its authentication flow, main application features, data storage and state management, user interface and validation, authentication logic, and navigation and routing. It is designed to be clear and concise, providing all the necessary information for developers to understand and run the application.
