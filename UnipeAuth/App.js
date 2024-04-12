@@ -35,7 +35,7 @@ export default function App() {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <SafeAreaView style={STYLES.container}>
+        <SafeAreaView style={STYLES.container} testID="app-container">
           <TamaguiProvider config={tamaguiConfig}>
             <StatusBar style='light' backgroundColor={COLORS.appSecondary} />
             <AuthNavigator />

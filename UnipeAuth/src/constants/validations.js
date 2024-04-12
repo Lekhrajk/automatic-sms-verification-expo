@@ -44,36 +44,12 @@ const otpVS = Yup.object().shape({
         .matches(/^\d{6}$/, 'OTP must be a 6-digit number'),
 });
 
-const resetPassVS = Yup.object().shape({
-    otp: Yup.string()
-        .required('OTP is required')
-        .matches(/^\d{6}$/, 'OTP must be a 6-digit number'),
-    password: Yup.string()
-        .required('Password is required')
-        .min(6, 'Password must be at least 6 characters')
-        .matches(
-            containsOneUpperCaseLetter,
-            'Password must contain one uppercase letter'
-        )
-        .matches(
-            containsOneLowerCaseLetter,
-            'Password must contain one lowercase letter'
-        )
-        .matches(
-            containsNumber,
-            'Password must contain a number'
-        ),
-    confirmPassword: Yup.string()
-        .required('Please confirm your password')
-        .oneOf([Yup.ref('password'), null], 'Passwords must match')
-});
 
 const VALIDATIONS = {
     loginVS,
     signupVS,
     forgotPassVS,
     otpVS,
-    resetPassVS,
 }
 
 export default VALIDATIONS;
