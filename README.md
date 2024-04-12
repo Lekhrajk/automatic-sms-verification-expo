@@ -10,8 +10,8 @@ This README provides detailed instructions on how to set up, install, and run th
 - [Project Structure](#project-structure)
 - [Testing](#testing)
 - [Customization](#customization)
-- [Contributing](#contributing)
-- [License](#license)
+- [Additional Information](#additional-information)
+- [Testing Instructions](#testing-instructions)
 
 ## Prerequisites
 
