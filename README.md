@@ -8,7 +8,6 @@ This README provides detailed instructions on how to set up, install, and run th
 - [Installation](#installation)
 - [Running the Application](#running-the-application)
 - [Project Structure](#project-structure)
-- [Testing](#testing)
 - [Customization](#customization)
 - [Additional Information](#additional-information)
 - [Testing Instructions](#testing-instructions)
@@ -51,15 +50,19 @@ The project is structured as follows:
  - `store`: Redux store using Redux Toolkit.
  - `utils`: Reusable functions or logic.
 
-- `__tests__`: Contains all testing code.
-
-## Testing
-
-The project uses `expo-jest` and `@testing-library/react-native` for testing.
-
 ## Customization
 
 To change the app logo, splash screen, or app name, modify the `app.json` file.
+
+# Development Build Instructions
+
+This section provides a step-by-step guide on how to create a development build of this project using Expo's EAS CLI.
+For more detailed information refer to the [EAS Build documentation](https://docs.expo.dev/build/setup/#install-the-latest-eas-cli).
+
+Open this link on your Android devices (or scan the QR code) to [install the app:](
+https://expo.dev/accounts/haryanvidev/projects/UnipeAuth/builds/44481b9d-0979-4d34-a570-1fb591076004)
+and  run `npx expo start --dev-client`
+
 
 ## Additional Information
 

@@ -8,7 +8,6 @@ This README provides detailed instructions on how to set up, install, and run th
 - [Installation](#installation)
 - [Running the Application](#running-the-application)
 - [Project Structure](#project-structure)
-- [Testing](#testing)
 - [Customization](#customization)
 - [Contributing](#contributing)
 - [License](#license)
@@ -51,11 +50,6 @@ The project is structured as follows:
  - `store`: Redux store using Redux Toolkit.
  - `utils`: Reusable functions or logic.
 
-- `__tests__`: Contains all testing code.
-
-## Testing
-
-The project uses `expo-jest` and `@testing-library/react-native` for testing.
 
 ## Customization
 
