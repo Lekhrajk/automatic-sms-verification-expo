@@ -61,17 +61,84 @@ The project uses `expo-jest` and `@testing-library/react-native` for testing.
 
 To change the app logo, splash screen, or app name, modify the `app.json` file.
 
-## Contributing
+## Additional Information
 
-Contributions are welcome. Please follow the standard GitHub workflow:
+### Authentication Flow
 
-1. Fork the repository.
-2. Create a new branch for your feature or fix.
-3. Commit your changes.
-4. Push your branch and open a pull request.
+The application implements a comprehensive authentication flow, including:
 
-## License
+- **Login**: Users can log in using their registered credentials.
+- **Registration**: New users can register by providing their phone number, username, and password. The registration screen also includes a button to navigate directly to the login screen.
+- **Verify OTP**: After registration, users are prompted to verify their phone number via OTP. The application uses the Google Identity SMS Retriever API to auto-detect the OTP. If auto-detection fails, users can manually enter the OTP.
+- **Forgot Password**: Users can reset their password if they forget it.
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+### Main Application Features
 
----
+The main application features include:
+
+- **Bottom Tabs Navigation**: The app is divided into four main sections accessible via bottom tabs.
+- **Settings Tab**: Includes options to log out, view logged-in user details, and delete the account. The delete account option prompts for confirmation before proceeding.
+
+### Data Storage and State Management
+
+- **React-Redux with Redux-Persist**: The application uses Redux for state management and Redux-Persist to persist user data across sessions.
+- **No Backend**: The application does not rely on a backend for data storage or authentication.
+
+### User Interface and Validation
+
+- **Tamagui**: The UI components are created using Tamagui.
+- **React-Native-Flash-Messages**: Toast notifications are implemented using React-Native-Flash-Messages.
+- **Formik and Yup**: Form validations are handled using Formik and Yup. Validation rules are defined in the `validations.js` file within the `constants` folder.
+
+### Authentication Logic
+
+- **Username and Password Validation**: The application checks if the username exists in Redux and throws an error if it does. It also validates the password and redirects the user to the appropriate screen based on the validation results.
+- **OTP Verification**: The OTP verification process includes auto-detection using the Google Identity SMS Retriever API. If auto-detection fails, users can manually enter the OTP. The application handles edge cases such as expired OTPs and displays error messages accordingly.
+- **Back Navigation Handling**: The application checks if the user is verified before allowing them to navigate back to the login screen.
+- **Token Generation**: A function for generating tokens using the username and password is included in the `utils` folder.
+
+### Navigation and Routing
+
+- **React Navigation**: The application uses React Navigation for navigation with proper configurations defined in the `routes` folder. This includes `AuthStacks`, `RootStacks`, and `MainStacks`.
+
+### Conclusion
+
+This README provides a comprehensive overview of the UnipeAuth React Native application, including its authentication flow, main application features, data storage and state management, user interface and validation, authentication logic, and navigation and routing. It is designed to be clear and concise, providing all the necessary information for developers to understand and run the application.
+
+## Testing Instructions
+
+To effectively test the UnipeAuth React Native application, especially the OTP verification feature, follow these detailed instructions:
+
+### Testing the Registration Screen
+
+- **Validations**: Ensure you adhere to the validation rules while creating a user on the registration screen. This includes providing a valid phone number, username, and password.
+- **Error and Success Messages**: Test various scenarios to ensure that the application correctly displays error and success flash messages. This includes cases where the username already exists, the OTP is incorrect, or the verification process is successful.
+
+### Testing OTP Auto-Detection
+
+- **Generating a Hash**: Upon successful registration, a hash will be generated. Check the terminal or console logs for this hash.
+- **Using the Hash**: If you are using an Android emulator, append this hash to the end of an SMS message. The SMS should be formatted to trigger the OTP auto-detection feature.
+- **Triggering the SMS**: Send the SMS to the emulator. If the hash matches, the application should auto-detect the OTP and mark the user as verified.
+- **Manual OTP Entry**: If auto-detection fails, ensure the application allows users to manually enter the OTP.
+
+### Testing on a Real Device
+
+- **Sending SMS to a Real Device**: If you want to test on a real device, append the hash to the end of an SMS message and send it to the testing device. The application should then auto-detect the OTP and proceed with the verification process.
+
+### Additional Test Scenarios
+
+- **Back Navigation**: Test the application's behavior when navigating back from the verification screen to the login screen without verification. The application should redirect the user back to the verification screen.
+- **Login and Forgot Password**: Test the login and forgot password flows to ensure they work as expected.
+
+### Note on OTP Verification
+
+- **No Backend**: Since there is no backend, the application uses a hardcoded OTP or code (`123456`) for verification. Ensure this code is used for testing purposes.
+
+### Reaching Out for Support
+
+- **Discussion**: If you encounter any difficulties running the project or have questions, feel free to reach out for a detailed discussion.
+
+### Conclusion
+
+These testing instructions provide a comprehensive guide to evaluating the UnipeAuth React Native application, focusing on the registration and OTP verification processes. By following these steps, you can ensure the application functions as intended and meets the requirements outlined in the assignment document.
+
