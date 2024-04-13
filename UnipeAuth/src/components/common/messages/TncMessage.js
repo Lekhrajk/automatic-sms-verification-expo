@@ -11,7 +11,7 @@ const TncMessage = () => {
     }
 
     return (
-        <View flexDirection="row" flexWrap="wrap" alignItems="center">
+        <View flexDirection="row" flexWrap="wrap" alignItems="center" justifyContent="center">
             <Text style={styles.textStyle}>*By signing up you agree to our{" "}</Text>
             <Pressable
                 onPress={() => handleRedirect("https://www.portfolioobuilder.com/")}
