@@ -1,4 +1,9 @@
 # Complete Auth Flow React Native Application
+# Auth Flow React Native Application(Android & IOS) production ready
+
+## Complete ready to use auth-flow (login, signup, forgot-password, verify-otp, auto read otp from sms and auto verify users, bottom-tabs-navigations, redux, redux-persist,redux-toolkits proper setup, confirmation modals, react-native-flash-messages for notifications, proper error-handling, edge-cases etc) for production.
+built using react-native , expo and tamagui
+Works very well for android and ios 
 
 This README provides detailed instructions on how to set up, install, and run the UnipeAuth React Native application developed using Expo. The application is developed using  Mac M2 Pro device with specific software versions and dependencies.
 
