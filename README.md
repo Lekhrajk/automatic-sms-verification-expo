@@ -1,6 +1,6 @@
 # UnipeAuth React Native Application
 
-## Complete ready to use auth-flow (login, signup, forgot-password, verify-otp, auto read otp from sms and auto verify users, bottom-tabs-navigations, redux, redux-persist,confirmation modals etc) for production.
+## Complete ready to use auth-flow (login, signup, forgot-password, verify-otp, auto read otp from sms and auto verify users, bottom-tabs-navigations, redux, redux-persist,redux-toolkits proper setup, confirmation modals etc) for production.
 built using react-native , expo and tamagui
 Works very well for android and ios 
 
