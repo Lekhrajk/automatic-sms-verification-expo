@@ -1,4 +1,4 @@
-# UnipeAuth React Native Application
+# Complete Auth Flow React Native Application
 
 This README provides detailed instructions on how to set up, install, and run the UnipeAuth React Native application developed using Expo. The application is developed using  Mac M2 Pro device with specific software versions and dependencies.
 

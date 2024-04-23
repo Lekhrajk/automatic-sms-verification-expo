@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "UnipeAuth",
+    "name": "Auth Flow",
     "slug": "UnipeAuth",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -15,7 +15,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.UnipeAuth"
     },
     "android": {
       "adaptiveIcon": {
